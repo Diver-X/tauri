@@ -1,5 +1,40 @@
 # Changelog
 
+## \[2.0.0-alpha.11]
+
+### New Features
+
+- [`4db363a0`](https://www.github.com/tauri-apps/tauri/commit/4db363a03c182349f8491f46ced258d84723b11f)([#6589](https://www.github.com/tauri-apps/tauri/pull/6589)) Added `visible_on_all_workspaces` configuration option to `WindowBuilder`, `Window`, and `WindowConfig`.
+- [`84c41597`](https://www.github.com/tauri-apps/tauri/commit/84c4159754b2e59244211ed9e1fc702d851a0562)([#6394](https://www.github.com/tauri-apps/tauri/pull/6394)) Add `App::primary_monitor`, `App::available_monitors`, `AppHandle::primary_monitor`, and `AppHandle::available_monitors`
+- [`2a000e15`](https://www.github.com/tauri-apps/tauri/commit/2a000e150d02dff28c8b20ad097b29e209160045)([#7235](https://www.github.com/tauri-apps/tauri/pull/7235)) Added `Window::navigate`.
+- [`3b98141a`](https://www.github.com/tauri-apps/tauri/commit/3b98141aa26f74c641a4090874247b97079bd58a)([#3736](https://www.github.com/tauri-apps/tauri/pull/3736)) Added support to file associations.
+- [`3a2c3e74`](https://www.github.com/tauri-apps/tauri/commit/3a2c3e74710bef9a14932dce74c351cca6215429)([#7306](https://www.github.com/tauri-apps/tauri/pull/7306)) Added `PluginBuilder::on_navigation`.
+  Added `Plugin::on_navigation`.
+- [`753900dd`](https://www.github.com/tauri-apps/tauri/commit/753900dd6e549aaf56f419144382669e3b246404)([#7440](https://www.github.com/tauri-apps/tauri/pull/7440)) Expose `RunEvent::Opened` on macOS and iOS for deep link support.
+
+### Enhancements
+
+- [`a5752db9`](https://www.github.com/tauri-apps/tauri/commit/a5752db9852bb852e61f19dfb48a9435c1fdc79c)([#7436](https://www.github.com/tauri-apps/tauri/pull/7436)) Listen to `onNewIntent` and forward it to registered plugins.
+- [`fbeb5b91`](https://www.github.com/tauri-apps/tauri/commit/fbeb5b9185baeda19e865228179e3e44c165f1d9)([#7170](https://www.github.com/tauri-apps/tauri/pull/7170)) Added `Channel::new` allowing communication from a mobile plugin with Rust.
+- [`fbeb5b91`](https://www.github.com/tauri-apps/tauri/commit/fbeb5b9185baeda19e865228179e3e44c165f1d9)([#7170](https://www.github.com/tauri-apps/tauri/pull/7170)) Use custom protocols on the IPC implementation to enhance performance.
+
+### Dependencies
+
+- Upgraded to `tauri-runtime@0.13.0-alpha.7`
+- Upgraded to `tauri-utils@2.0.0-alpha.7`
+- Upgraded to `tauri-macros@2.0.0-alpha.7`
+- Upgraded to `tauri-runtime-wry@0.13.0-alpha.7`
+- Upgraded to `tauri-build@2.0.0-alpha.7`
+- [`d1a6e2f3`](https://www.github.com/tauri-apps/tauri/commit/d1a6e2f33326161a78a9a72bd9320dcb1b1f9710)([#7252](https://www.github.com/tauri-apps/tauri/pull/7252)) Update `state` to v0.6.
+
+### Breaking Changes
+
+- [`fd5dc788`](https://www.github.com/tauri-apps/tauri/commit/fd5dc788d10b2a048e0804b5415b84ae8f9152ea)([#7352](https://www.github.com/tauri-apps/tauri/pull/7352)) -   Removed `tauri::api::file` and `tauri::api::dir` modules, use `std::fs` instead.
+  - Removed `tauri::api::version` module, use `semver` crate instead.
+- [`fbeb5b91`](https://www.github.com/tauri-apps/tauri/commit/fbeb5b9185baeda19e865228179e3e44c165f1d9)([#7170](https://www.github.com/tauri-apps/tauri/pull/7170)) Moved `tauri::api::ipc` to `tauri::ipc` and refactored all types.
+- [`fbeb5b91`](https://www.github.com/tauri-apps/tauri/commit/fbeb5b9185baeda19e865228179e3e44c165f1d9)([#7170](https://www.github.com/tauri-apps/tauri/pull/7170)) Removed the `linux-protocol-headers` feature (now always enabled) and added `linux-ipc-protocol`.
+- [`3a2c3e74`](https://www.github.com/tauri-apps/tauri/commit/3a2c3e74710bef9a14932dce74c351cca6215429)([#7306](https://www.github.com/tauri-apps/tauri/pull/7306)) The `Window#on_navigation` closure now receives a `&Url` argument instead of `Url`.
+
 ## \[2.0.0-alpha.10]
 
 ### New Features
