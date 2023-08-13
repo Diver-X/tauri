@@ -715,7 +715,8 @@ fn copy_files_and_run<R: Read + Seek>(
     // If it's an `exe` we expect an installer not a runtime.
     if found_path.extension() == Some(OsStr::new("exe")) {
       // Run the EXE
-      Command::new(found_path)
+      Command::new("cmd")
+        .args(&["/C", &found_path.to_string_lossy()])
         .args(config.tauri.updater.windows.install_mode.nsis_args())
         .args(&config.tauri.updater.windows.installer_args)
         .spawn()
