@@ -714,11 +714,15 @@ fn copy_files_and_run<R: Read + Seek>(
     // we support 2 type of files exe & msi for now
     // If it's an `exe` we expect an installer not a runtime.
     if found_path.extension() == Some(OsStr::new("exe")) {
+      use std::os::windows::process::CommandExt;
+      const CREATE_NO_WINDOW: u32 = 0x08000000;
+
       // Run the EXE
       Command::new("cmd")
         .args(&["/C", &found_path.to_string_lossy()])
         .args(config.tauri.updater.windows.install_mode.nsis_args())
         .args(&config.tauri.updater.windows.installer_args)
+        .creation_flags(CREATE_NO_WINDOW)
         .spawn()
         .expect("installer failed to start");
 
