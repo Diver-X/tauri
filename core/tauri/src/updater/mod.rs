@@ -275,6 +275,12 @@ impl<R: Runtime> UpdateBuilder<R> {
     Ok(self)
   }
 
+  /// Adds a list of endpoints to fetch the update.
+  pub fn endpoints(mut self, urls: &[String]) -> Self {
+    self.inner = self.inner.urls(urls);
+    self
+  }
+
   /// Check if an update is available.
   ///
   /// # Examples
